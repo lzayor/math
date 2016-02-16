@@ -1,0 +1,113 @@
+#+STARTUP: overview
+#+TITLE:
+#+OPTIONS: ^:{}
+#+OPTIONS: Tex:t LaTex:t  toc:nil
+#+OPTIONS: H:4 num:4
+#+LATEX_CLASS: article
+#+LaTeX_CLASS_OPTIONS: [a4paper,titlepage]
+#+LATEX_HEADER: \usepackage{fullpage}
+#+LATEX_HEADER: \usepackage{amsmath}
+#+LATEX_HEADER: \usepackage{color}
+#+LATEX_HEADER: \usepackage{datetime}
+#+LATEX_HEADER: \usepackage{enumitem}
+#+LATEX_HEADER: \usepackage{graphicx}
+#+LATEX_HEADER: \usepackage{tikz}
+#+LATEX_HEADER: \usepackage{float}
+#+LATEX_HEADER: \usepackage{pgfplots}
+#+LATEX_HEADER: \usepackage{balance}
+#+LATEX_HEADER: \usepackage{lipsum}
+#+LATEX_HEADER: \usetikzlibrary{arrows}
+#+LATEX_HEADER: \usepackage{dblfloatfix}
+#+LATEX_HEADER: \usepackage[justification=centering]{caption}
+#+LATEX_HEADER: \usepackage{xeCJK}
+#+LATEX_HEADER: \setCJKmainfont{FandolSong:style=Regular}
+
+# new environment
+#+LATEX_HEADER: \makeatletter
+#+LATEX_HEADER: \newenvironment{tablehere}
+#+LATEX_HEADER: {\def\@captype{table}}
+#+LATEX_HEADER: {}
+#+LATEX_HEADER: \newenvironment{figurehere}
+#+LATEX_HEADER: {\def\@captype{figure}}
+#+LATEX_HEADER: {}
+#+LATEX_HEADER: \makeatother
+#+LATEX: \newcommand{\fsfortytwo}{\fontsize{42pt}{\baselineskip}\selectfont}
+#+LATEX: \newcommand{\fsthirtysix}{\fontsize{36pt}{\baselineskip}\selectfont}
+#+LATEX: \newcommand{\fstwentyeight}{\fontsize{28pt}{\baselineskip}\selectfont}
+#+LATEX: \newcommand{\fstwenty}{\fontsize{20pt}{\baselineskip}\selectfont}
+#+LATEX: \newcommand{\fseighteen}{\fontsize{18pt}{\baselineskip}\selectfont}
+#+LATEX: \newcommand{\fssixteen}{\fontsize{16pt}{\baselineskip}\selectfont}
+#+LATEX: \newcommand{\HRule}{\rule{\linewidth}{1.5mm}}
+#+LATEX: \newcommand{\hRule}{\rule{\linewidth}{0.5mm}}
+#+LATEX: \newpage
+#+LATEX: \cleardoublepage
+#+LATEX: \setcounter{page}{1}
+
+# for title page
+#+BEGIN_LATEX
+%title
+\newdate{date}{16}{02}{2016}
+\date{\displaydate{date}}
+\begin{titlepage}
+\begin{center}
+
+\textcolor{blue}{\HRule \\[1.5cm]}
+\begin{fsfortytwo}
+Proof for Rota's Basis Conjecture \\[.3cm]
+\end{fsfortytwo}
+
+~\\[5.5cm]
+\textbf{\LARGE \displaydate{date}} ~\\[2.0cm]
+\vfill
+\end{center}
+\end{titlepage}
+
+\begin{abstract}
+How to proof Rota's basis conjecture? \cdots
+\end{abstract}
+
+#+END_LATEX
+
+* Lemmas
+  #+BEGIN_LATEX
+  \begin{large}
+  \begin{description}
+  % Lemma-1
+  \item[Lemma 1] 如果向量组 
+  $\alpha_{1}, \alpha_{2}, \cdots , \alpha_{s}$ 线性无关,
+  那么向量组
+  \begin{align*}
+  \beta_{1} & = a_{11}\alpha_{1} + a_{12}\alpha_{2} + \cdots + a_{1s}\alpha_{s} ~\\
+  \beta_{2} & = a_{21}\alpha_{1} + a_{22}\alpha_{2} + \cdots + a_{2s}\alpha_{s} ~\\
+  & \vdots ~\\
+  \beta_{s} & = a_{s1}\alpha_{1} + a_{s2}\alpha_{2} + \cdots + a_{ss}\alpha_{s} ~\\
+  \end{align*}
+  也线性无关的充要条件是
+  \[
+  \begin{vmatrix}
+  a_{11} & a_{21} & \cdots & a_{s1} \\
+  a_{12} & a_{22} & \cdots & a_{s2} \\
+  \vdots & \vdots & & \vdots \\
+  a_{1s} & a_{2s} & \cdots & a_{ss} \\
+  \end{vmatrix}
+  \neq 0
+  \]
+  \textbf{证明: } \\
+  假设 $ k_{1}\beta_{1} + \cdots + k_{s}\beta_{s} = 0 $, 则有
+  \[
+  k_{1}(a_{11}\alpha_{1} + a_{12}\alpha_{2} + \cdots + a_{1s}\alpha_{s})
+  + \cdots 
+  +  k_{s}(a_{s1}\alpha_{1} + a_{s2}\alpha_{2} + \cdots + a_{ss}\alpha_{s})
+  = 0
+  \]
+  即
+  \[
+  (k_{1}a_{11} + k_{2}a_{21} + \cdots + k_{s}a_{s1})\alpha_{1}
+  + \cdots
+  + (k_{1}a_{1s} + k_{2}a_{2s} + \cdots + k_{s}a_{ss})\alpha_{s}
+  = 0
+  \]
+  \end{description}
+  \end{large}
+  #+END_LATEX
+  
